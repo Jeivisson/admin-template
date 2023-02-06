@@ -1,6 +1,6 @@
 export default interface Usuario {
   uid: string;
-  email: string;
+  email: string | null;
   name: string;
   token: string;
   provider: string;

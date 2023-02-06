@@ -14,9 +14,9 @@ export default function TopBar(props: TopBarProps) {
   return (
     <div className={`flex`}>
       <Title title={props.title} subtitle={props.subtitle} />
-      <div className={`flex flex-grow justify-end`}>
+      <div className={`flex flex-grow justify-end items-center`}>
         <AltThemeButton theme={theme} altTheme={altTheme} />
-        <UserAvatar />
+        <UserAvatar className="ml-3" />
       </div>
     </div>
   );
