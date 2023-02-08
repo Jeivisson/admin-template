@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import loadingImg from '../../public/Images/loading.gif';
 import useAuth from '../data/hook/useAuth';
 
-export default function ForceAuth(props: any) {
+export default function ForceAuth(jsx: any) {
   const router = useRouter();
   const { usuario, loading } = useAuth();
 
@@ -23,7 +23,7 @@ export default function ForceAuth(props: any) {
             }}
           />
         </Head>
-        {props.children}
+        {jsx}
       </>
     );
   }

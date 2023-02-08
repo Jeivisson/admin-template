@@ -5,7 +5,7 @@ import { IconWarning } from '../components/Icons';
 import useAuth from '../data/hook/useAuth';
 
 export default function Auth() {
-  const { usuario, loginGoogle } = useAuth();
+  const { createUser, login, loginGoogle } = useAuth();
 
   const [error, setError] = useState(null);
   const [email, setEmail] = useState('');
@@ -17,11 +17,15 @@ export default function Auth() {
     setTimeout(() => setError(null), time * 1000);
   }
 
-  function submit() {
-    if (mode === 'login') {
-      console.log('login');
-    } else {
-      console.log('castrar');
+  async function submit() {
+    try {
+      if (mode === 'login') {
+        await login(email, pw);
+      } else {
+        await createUser(email, pw);
+      }
+    } catch (e) {
+      await errorFn(e?.message ?? 'Erro inesperado');
     }
   }
 
